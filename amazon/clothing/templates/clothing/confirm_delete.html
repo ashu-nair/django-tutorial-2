@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Deletion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .confirm-btn {
+            background-color: #d9534f;
+            color: white;
+        }
+
+        .cancel-btn {
+            background-color: #5bc0de;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Are you sure you want to delete "{{ product.name }}"?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn confirm-btn">Yes, Delete</button>
+    </form>
+    <a href="{% url 'home' %}" class="btn cancel-btn">Cancel</a>
+</div>
+
+</body>
+</html>
